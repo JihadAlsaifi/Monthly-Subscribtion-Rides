@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ride Booking</title>
+</head>
+<body>
+    <h1>Ride Booking</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <form method="POST" action="{{ url_for('booking') }}">
+        <label for="pickup_point">Pickup Point:</label>
+        <input type="text" id="pickup_point" name="pickup_point" required><br>
+        <label for="dropoff_point">Dropoff Point:</label>
+        <input type="text" id="dropoff_point" name="dropoff_point" required><br>
+        <label for="pickup_time">Pickup Time:</label>
+        <input type="text" id="pickup_time" name="pickup_time" required><br>
+        <label for="dropoff_time">Dropoff Time:</label>
+        <input type="text" id="dropoff_time" name="dropoff_time" required><br>
+        <input type="submit" value="Book Ride">
+    </form>
+</body>
+</html>
